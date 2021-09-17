@@ -21,8 +21,10 @@
         <thead>
           <tr>
             <td>DPI</td>
-            <td>Nombres</td>
-            <td>Apellidos</td>
+            <td>nombre</td>
+            <td>apellidos</td>
+            <td>vacuna</td>
+            <td>dosis</td>
           </tr>
         </thead>
         <tbody>
@@ -31,21 +33,16 @@
             <td>{{user.dpi}}</td>
             <td>{{user.nombre}}</td>
             <td>{{user.apellidos}}</td>
-            <td>
-              <a href="/User/edit/{{user.dpi}}" class="btn btn-secondary">edit</a>
-              <a href="/delete/{{user.dpi}}" class="btn btn-danger btn-delete">delete</a>
-              <a class="nav-link dropdown-toggle" action="/forward/" method="post" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Vacuna</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item text-dark"  href="/forward/{{user.id}}/1/1">Sputnik 1era Dosis</a>
-                  <a class="dropdown-item text-dark"  href="/forward/{{user.id}}/1/2">Sputnik 2da Dosis</a>
-                  <a class="dropdown-item text-dark"  href="/forward/{{user.id}}/2/1">Moderna 1era Dosis</a>
-                  <a class="dropdown-item text-dark"  href="/forward/{{user.id}}/2/2">Moderna 2da Dosis</a>
-                </div>
-            </td>
+            <td>{{user.vacuna}}</td>
+            <td>{{user.dosis}}</td>
+            
           </tr>
           {% endfor %}
         </tbody>
       </table>
+    </div>
+    <div class="card card-body">
+      <img src={{url}} alt="my plot">
     </div>
 </main>
 {% endblock %}

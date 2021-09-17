@@ -116,6 +116,109 @@ func createUser(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func allVacccine(w http.ResponseWriter, req *http.Request) {
+	print("ebtre")
+	db := util.InitDB()
+	db.Begin()
+
+	// rows, err := db.Query("select p.*,v.vacuna,d.dosis from persona p inner join dosis d on d.persona_id=p.id inner join vacuna v on v.id=d.vacuna_id")
+	// select p.*,v.vacuna,count(d.dosis) as dosis from persona p inner join dosis d on d.persona_id=p.id inner join vacuna v on v.id=d.vacuna_id group by v.vacuna
+	rows, err := db.Query("select p.*,v.vacuna,count(d.dosis) as dosis from persona p inner join dosis d on d.persona_id=p.id inner join vacuna v on v.id=d.vacuna_id group by v.vacuna")
+
+	if err != nil {
+		fmt.Println(err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
+	// print(rows)
+
+	var listaTemps []user.Dosis
+	for rows.Next() {
+		var temps user.Dosis
+		err = rows.Scan(&temps.Id, &temps.Dpi, &temps.Nombre, &temps.Apellidos, &temps.Vacuna, &temps.Dosis)
+		if err != nil {
+			panic(err.Error())
+		}
+		// print(temps)
+
+		listaTemps = append(listaTemps, temps)
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(listaTemps)
+	db.Close()
+
+}
+
+func allVacccineReport(w http.ResponseWriter, req *http.Request) {
+	print("ebtre")
+	db := util.InitDB()
+	db.Begin()
+
+	rows, err := db.Query("select p.*,v.vacuna,d.dosis from persona p inner join dosis d on d.persona_id=p.id inner join vacuna v on v.id=d.vacuna_id")
+	// select p.*,v.vacuna,count(d.dosis) as dosis from persona p inner join dosis d on d.persona_id=p.id inner join vacuna v on v.id=d.vacuna_id group by v.vacuna
+	// rows, err := db.Query("select p.*,v.vacuna,count(d.dosis) as dosis from persona p inner join dosis d on d.persona_id=p.id inner join vacuna v on v.id=d.vacuna_id group by v.vacuna")
+
+	if err != nil {
+		fmt.Println(err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
+	// print(rows)
+
+	var listaTemps []user.Dosis
+	for rows.Next() {
+		var temps user.Dosis
+		err = rows.Scan(&temps.Id, &temps.Dpi, &temps.Nombre, &temps.Apellidos, &temps.Vacuna, &temps.Dosis)
+		if err != nil {
+			panic(err.Error())
+		}
+		// print(temps)
+
+		listaTemps = append(listaTemps, temps)
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(listaTemps)
+	db.Close()
+
+}
+
+func addVaccine(w http.ResponseWriter, r *http.Request) {
+	var newUser user.Vaccine
+	db := util.InitDB()
+	reqBody, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		fmt.Fprintf(w, "Insert a Valid User Data")
+	}
+
+	json.Unmarshal(reqBody, &newUser)
+	// se envia
+	//  {
+	// 	"dpi" : 1234,
+	// 	"nombre" : "Benjamin",
+	// 	"apellidos" : "Lopez"
+	// }
+	// currentTime := time.Now()
+	rows, err := db.Query("INSERT INTO dosis (dosis, fecha, vacuna_id, persona_id) VALUES (?, DATE(NOW()), ?, ?)", &newUser.Dosis, &newUser.Vacuna_id, &newUser.Persona_id)
+	// rows, err := db.Query("INSERT INTO usuario (username,passwordd,nombre,apellido,fecha_nacimiento,fecha_registro,email,foto) VALUES ('" + newUser.Username + "','" + newUser.Password + "','" + newUser.Nombre + "','" + newUser.Apellido + "',TO_DATE('" + newUser.Fecha_nacimiento + "','dd/mm/yyyy'),TO_DATE('" + currentTime.Format("02/01/2006") + "','dd/mm/yyyy'),'" + newUser.Email + "','" + path + "')")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer rows.Close()
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(newUser)
+	db.Close()
+
+}
+
 func getUser(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
 	var newTemp model.User
@@ -201,6 +304,10 @@ func main() {
 	router.HandleFunc("/User/get", getUser).Methods("GET")
 	router.HandleFunc("/User/update", updateUser).Methods("PUT")
 	router.HandleFunc("/User/delete", deleteUser).Methods("DELETE")
+
+	router.HandleFunc("/Dosis/add", addVaccine).Methods("POST")
+	router.HandleFunc("/Dosis/report", allVacccine).Methods("GET")
+	router.HandleFunc("/Dosis/All", allVacccineReport).Methods("GET")
 
 	http.ListenAndServe(":3000", router)
 
