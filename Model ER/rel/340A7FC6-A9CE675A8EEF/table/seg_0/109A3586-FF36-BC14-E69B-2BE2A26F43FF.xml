@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="109A3586-FF36-BC14-E69B-2BE2A26F43FF" name="PERSONA">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:32:27 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="D68EEDE5-9A0A-C7B2-8E21-37A0D8ABA55E">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:38:34 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DPI" id="14ECE9EF-ABAD-FE51-7179-5F27D72B6F44">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:38:34 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="7A7692BC-03D5-DAC1-9E8F-D44A82F9C638">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:38:34 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Apellidos" id="331C472D-5361-17B5-FC62-7F7D5EA61DB2">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:38:34 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="95548176-D059-8351-C967-E86BB1EA03CF" name="PERSONA_PK">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:38:34 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D68EEDE5-9A0A-C7B2-8E21-37A0D8ABA55E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

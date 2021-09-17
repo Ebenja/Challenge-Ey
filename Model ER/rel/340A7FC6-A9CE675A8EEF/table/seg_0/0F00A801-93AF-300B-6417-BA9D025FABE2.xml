@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0F00A801-93AF-300B-6417-BA9D025FABE2" name="VACUNA">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:38:37 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="926A636A-9D3F-E967-2AC6-6ED6A27BE9D0">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:40:05 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Vacuna" id="7FA1BFBF-7FF5-567B-6123-D44D09AE1F46">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:40:05 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3D4D2D74-B4ED-1586-A62E-59ED596EEADE" name="Vacuna_PK">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:40:05 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="926A636A-9D3F-E967-2AC6-6ED6A27BE9D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

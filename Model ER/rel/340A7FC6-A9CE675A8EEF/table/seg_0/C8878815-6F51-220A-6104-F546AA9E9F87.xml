@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C8878815-6F51-220A-6104-F546AA9E9F87" name="DOSIS">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:40:13 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="dosis" id="4C88E4F2-EBEC-11AD-EABF-6C9D39376800">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:41:40 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha" id="8D5796DA-D55F-FE52-9E04-DE2B08D935AA">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:42:34 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VACUNA_Id" id="95E94DC5-9059-455E-8425-3DE102BFC431">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:43:55 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="24113A5D-BEFB-D86E-FD5D-143FC5778437" referredColumn="926A636A-9D3F-E967-2AC6-6ED6A27BE9D0"/>
+</associations>
+</Column>
+<Column name="PERSONA_Id" id="9C644CCD-DAF6-DF3A-0344-E78976215201">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:43:59 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="01146219-1002-6B1A-566F-0073EBDE51E7" referredColumn="D68EEDE5-9A0A-C7B2-8E21-37A0D8ABA55E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B2E22A31-6B46-F6BB-88C4-4355B277FAD6" name="DOSIS_PK">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:44:27 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="95E94DC5-9059-455E-8425-3DE102BFC431"/>
+<colUsage columnID="9C644CCD-DAF6-DF3A-0344-E78976215201"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="30EFEE4C-B7E4-B724-70D3-435E2D416440" name="DOSIS_VACUNA_FK">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:43:55 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="95E94DC5-9059-455E-8425-3DE102BFC431"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="297EF938-2DD5-1930-26A2-E79FEFEAA3D5" name="DOSIS_PERSONA_FK">
+<createdBy>Erick</createdBy>
+<createdTime>2021-09-17 02:43:59 UTC</createdTime>
+<ownerDesignName>Model ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9C644CCD-DAF6-DF3A-0344-E78976215201"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
